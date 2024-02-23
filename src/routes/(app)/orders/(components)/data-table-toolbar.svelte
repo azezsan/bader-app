@@ -9,6 +9,7 @@
 	import type { Writable } from 'svelte/store';
 	import { MixerHorizontal } from 'svelte-radix';
 	import { Cross, Plus } from 'lucide-svelte';
+	import * as m from '$paraglide/messages';
 
 	export let tableModel: TableViewModel<Task>;
 
@@ -34,21 +35,21 @@
 <div class="flex items-center justify-between">
 	<div class="flex flex-1 items-center gap-2">
 		<Input
-			placeholder="Filter tasks..."
+			placeholder={m.filter_orders()}
 			class="h-8 w-[150px] lg:w-[250px]"
-			type="search"
+			type={m.search()}
 			bind:value={$filterValue}
 		/>
 
 		<DataTableFacetedFilter
 			bind:filterValues={$filterValues.status}
-			title="Status"
+			title={m.status()}
 			options={statuses}
 		/>
 
 		<DataTableFacetedFilter
 			bind:filterValues={$filterValues.priority}
-			title="Priority"
+			title={m.priority()}
 			options={priorities}
 		/>
 		{#if showReset}
@@ -61,7 +62,7 @@
 				variant="ghost"
 				class="h-8 px-2 lg:px-3"
 			>
-				Reset
+				{m.reset()}
 				<Cross2 class="ms-2 h-4 w-4" />
 			</Button>
 		{/if}

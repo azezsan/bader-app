@@ -4,6 +4,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { Task } from '../(data)/schemas';
 	import type { TableViewModel } from 'svelte-headless-table';
+	import * as m from '$paraglide/messages';
 
 	export let tableModel: TableViewModel<Task>;
 	const { pluginStates, flatColumns } = tableModel;
@@ -24,11 +25,11 @@
 	<DropdownMenu.Trigger asChild let:builder>
 		<Button variant="outline" size="sm" class="ms-auto hidden h-8 lg:flex" builders={[builder]}>
 			<MixerHorizontal class="me-2 h-4 w-4" />
-			View
+			{m.view()}
 		</Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content>
-		<DropdownMenu.Label>Toggle columns</DropdownMenu.Label>
+		<DropdownMenu.Label>{m.toggle_columns()}</DropdownMenu.Label>
 		<DropdownMenu.Separator />
 		{#each flatColumns as col}
 			{#if hidableCols.includes(col.id)}
