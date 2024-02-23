@@ -1,3 +1,24 @@
 {
-    "hello": "hello"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "hello": "Do",
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "logout": "Logout",
+    "orders": "Orders",
+    "Inbox": "Inbox",
+    "priority": "Priority",
+    "status": "Status",
+    "title": "Title",
+    "order": "Order",
+    "view": "View",
+    "edit": "Edit",
+    "delet": "Delete",
+    "search": "Search",
+    "reset": "Reset",
+    "Rows_per_page": "Rows per page",
+    "page": "Page",
+    "of": "of",
+    "filter_orders": "Filter orders",
+    "toggle_columns": "Toggle columns"
 }

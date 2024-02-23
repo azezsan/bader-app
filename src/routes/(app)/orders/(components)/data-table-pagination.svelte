@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { Button } from "$lib/components/ui/button";
-	import ChevronRight from "svelte-radix/ChevronRight.svelte";
-	import ChevronLeft from "svelte-radix/ChevronLeft.svelte";
-	import DoubleArrowRight from "svelte-radix/DoubleArrowRight.svelte";
-	import DoubleArrowLeft from "svelte-radix/DoubleArrowLeft.svelte";
-	import * as Select from "$lib/components/ui/select";
-	import type { Task } from "../(data)/schemas";
-	import type { TableViewModel } from "svelte-headless-table";
+	import { Button } from '$lib/components/ui/button';
+	import ChevronRight from 'svelte-radix/ChevronRight.svelte';
+	import ChevronLeft from 'svelte-radix/ChevronLeft.svelte';
+	import DoubleArrowRight from 'svelte-radix/DoubleArrowRight.svelte';
+	import DoubleArrowLeft from 'svelte-radix/DoubleArrowLeft.svelte';
+	import * as Select from '$lib/components/ui/select';
+	import type { Task } from '../(data)/schemas';
+	import type { TableViewModel } from 'svelte-headless-table';
+	import * as m from '$paraglide/messages';
 
 	export let tableModel: TableViewModel<Task>;
 
@@ -19,15 +20,15 @@
 
 <div class="flex items-center justify-between px-2">
 	<div class="flex-1 text-sm text-muted-foreground">
-		{Object.keys($selectedDataIds).length} of{" "}
+		{Object.keys($selectedDataIds).length} of{' '}
 		{$rows.length} row(s) selected.
 	</div>
 	<div class="flex items-center gap-6 lg:gap-8">
 		<div class="flex items-center gap-2">
-			<p class="text-sm font-medium">Rows per page</p>
+			<p class="text-sm font-medium">{m.Rows_per_page()}</p>
 			<Select.Root
 				onSelectedChange={(selected) => pageSize.set(Number(selected?.value))}
-				selected={{ value: 10, label: "10" }}
+				selected={{ value: 10, label: '10' }}
 			>
 				<Select.Trigger class="w-[180px]">
 					<Select.Value placeholder="Select page size" />
@@ -42,7 +43,10 @@
 			</Select.Root>
 		</div>
 		<div class="flex w-[100px] items-center justify-center text-sm font-medium">
-			Page {$pageIndex + 1} of {$pageCount}
+			{m.page()}
+			{$pageIndex + 1}
+			{m.of()}
+			{$pageCount}
 		</div>
 		<div class="flex items-center gap-2">
 			<Button

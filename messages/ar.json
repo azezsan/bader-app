@@ -1,3 +1,24 @@
 {
-    "hello": "هلا"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "hello": "هلا",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل خروج",
+    "orders": "طلبات",
+    "Inbox": "صندوق الوارد",
+    "priority": "أولوية",
+    "status": "حالة",
+    "title": "عنوان",
+    "order": "طلب",
+    "view": "منظر",
+    "edit": "يحرر",
+    "delet": "يمسح",
+    "search": "يبحث",
+    "reset": "إعادة ضبط",
+    "Rows_per_page": "صفوف لكل صفحة",
+    "page": "صفحة",
+    "of": "من",
+    "filter_orders": "تصفية الطلبات",
+    "toggle_columns": "تبديل الأعمدة"
 }

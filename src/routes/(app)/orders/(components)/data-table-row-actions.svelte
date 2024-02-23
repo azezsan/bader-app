@@ -11,6 +11,7 @@
 	import { superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import Input from '$lib/components/ui/input/input.svelte';
+	import * as m from '$paraglide/messages';
 
 	export let row: Task;
 
@@ -37,7 +38,7 @@
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content class="w-[160px]" align="end">
 			<Dialog.Trigger>
-				<DropdownMenu.Item>Edit</DropdownMenu.Item>
+				<DropdownMenu.Item>{m.edit()}</DropdownMenu.Item>
 			</Dialog.Trigger>
 			<DropdownMenu.Item>Make a copy</DropdownMenu.Item>
 			<DropdownMenu.Item>Favorite</DropdownMenu.Item>
@@ -73,7 +74,7 @@
 			>
 				<button type="submit" class="w-full text-left">
 					<DropdownMenu.Item>
-						Delete
+						{m.delet()}
 						<DropdownMenu.Shortcut>⌘⌫</DropdownMenu.Shortcut>
 					</DropdownMenu.Item>
 				</button>

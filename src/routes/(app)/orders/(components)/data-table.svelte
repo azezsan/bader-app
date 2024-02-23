@@ -2,6 +2,7 @@
 	import { get, readable } from 'svelte/store';
 	import { Render, Subscribe, createRender, createTable } from 'svelte-headless-table';
 	import * as Table from '$lib/components/ui/table';
+	import * as m from '$paraglide/messages';
 	import {
 		addColumnFilters,
 		addHiddenColumns,
@@ -70,9 +71,7 @@
 		}),
 		table.column({
 			accessor: 'id',
-			header: () => {
-				return 'Task';
-			},
+			header: m.order(),
 			id: 'task',
 			plugins: {
 				sort: {
@@ -82,8 +81,8 @@
 		}),
 		table.column({
 			accessor: 'title',
-			header: 'Title',
 			id: 'title',
+			header: m.title(),
 			cell: ({ value, row }) => {
 				if (row.isData()) {
 					return createRender(DataTableTitleCell, {
@@ -96,8 +95,8 @@
 		}),
 		table.column({
 			accessor: 'status',
-			header: 'Status',
 			id: 'status',
+			header: m.status(),
 			cell: ({ value }) => {
 				return createRender(DataTableStatusCell, {
 					value
@@ -122,7 +121,7 @@
 		table.column({
 			accessor: 'priority',
 			id: 'priority',
-			header: 'Priority',
+			header: m.priority(),
 			cell: ({ value }) => {
 				return createRender(DataTablePriorityCell, {
 					value
