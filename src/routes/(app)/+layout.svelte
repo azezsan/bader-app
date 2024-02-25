@@ -1,39 +1,56 @@
-<script>
-	import { Button } from '$lib/components/ui/button';
-	import { Inbox, ArrowLeftRight, LogOut } from 'lucide-svelte';
+<script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
-	import { page } from '$app/stores';
-	import * as m from '$paraglide/messages';
+	import { cn } from '$lib/utils';
 	import * as Resizable from '$lib/components/ui/resizable';
+	import { primaryRoutes, secondaryRoutes } from './config';
+	import Nav from './(components)/nav.svelte';
+	import AccountSwitcher from './(components)/account-switcher.svelte';
+	import { accounts } from './inbox/data';
+
+	export let defaultLayout = [265, 440, 655];
+	export let defaultCollapsed = false;
+
+	let isCollapsed = defaultCollapsed;
+
+	function onLayoutChange(sizes: number[]) {
+		document.cookie = `PaneForge:layout=${JSON.stringify(sizes)}`;
+	}
+
+	function onCollapse() {
+		isCollapsed = true;
+		document.cookie = `PaneForge:collapsed=${true}`;
+	}
+
+	function onExpand() {
+		isCollapsed = false;
+		document.cookie = `PaneForge:collapsed=${false}`;
+	}
 </script>
 
-<Resizable.PaneGroup direction="horizontal" class="min-h-screen">
+<Resizable.PaneGroup
+	direction="horizontal"
+	{onLayoutChange}
+	class="min-h-screen items-stretch overflow-hidden"
+>
 	<Resizable.Pane
-		defaultSize={1 / 10}
-		maxSize={13}
-		collapsedSize={0}
-		collapsible={true}
-		minSize={8}
-		order={1}
-		class="flex flex-col gap-1 pt-8"
+		defaultSize={defaultLayout[0]}
+		collapsedSize={4}
+		collapsible
+		minSize={15}
+		maxSize={20}
+		{onCollapse}
+		{onExpand}
 	>
-		<Button
-			variant="ghost"
-			class="mx-2 flex justify-start gap-2 {$page.url.pathname === '/inbox' ? 'bg-accent' : ''}"
-			href="/inbox"><Inbox size="16px" />{m.Inbox()}</Button
-		>
-		<Button
-			variant="ghost"
-			class="mx-2 flex justify-start gap-2 {$page.url.pathname === '/orders' ? 'bg-accent' : ''}"
-			href="/orders"><ArrowLeftRight size="16px" />{m.orders()}</Button
-		>
-		<Separator orientation="horizontal" class="my-4 bg-border" />
-		<Button variant="ghost" class="flex justify-start gap-2" href="/"
-			><LogOut size="16px" />{m.logout()}</Button
-		>
+		<div class={cn('flex h-[52px] items-center justify-center', isCollapsed ? 'h-[52px]' : 'px-2')}>
+			<AccountSwitcher {isCollapsed} {accounts} />
+		</div>
+		<Separator />
+		<Nav {isCollapsed} routes={primaryRoutes} />
+		<Separator />
+		<Nav {isCollapsed} routes={secondaryRoutes} />
 	</Resizable.Pane>
 	<Resizable.Handle withHandle />
-	<Resizable.Pane defaultSize={9 / 10} order={2}>
+	<Resizable.Pane defaultSize={defaultLayout[1]}>
 		<slot />
 	</Resizable.Pane>
 </Resizable.PaneGroup>
