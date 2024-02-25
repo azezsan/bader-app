@@ -5,7 +5,7 @@ import { z } from "zod";
 export const taskSchema = z.object({
 	id: z.string(),
 	status: z.string(),
-	label: z.string(),
+	label: z.string().optional(),
 	shipping_type: z.string(),
 	from: z.string(),
 	to: z.string(),

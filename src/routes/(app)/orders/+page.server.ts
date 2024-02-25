@@ -36,7 +36,7 @@ let tasks: Task[] = [
 		"size": "طبلية",
 		"shipping_type": "frozen",
 		"type_of_goods": "طعام",
-		"status": "in progress",
+		"status": "in_progress",
 		"label": "feature",
 	},
 	{
@@ -76,42 +76,6 @@ let tasks: Task[] = [
 		"label": "documentation",
 	},
 	{
-		"id": "TASK-7878",
-		"order_details": "We need to quantify the mobile AI sensor!",
-		"from": "الرياض",
-		"to": "مكة",
-		"quantity": "5",
-		"size": "طبلية",
-		"shipping_type": "dry",
-		"type_of_goods": "اجهزة كهربائية",
-		"status": "accepted",
-		"label": "feature",
-	},
-	{
-		"id": "TASK-5207",
-		"order_details": "We need to quantify the mobile AI sensor!",
-		"from": "الدمام",
-		"to": "الرياض",
-		"quantity": "2",
-		"size": "طبلية",
-		"shipping_type": "frozen",
-		"type_of_goods": "طعام",
-		"status": "in progress",
-		"label": "feature",
-	},
-	{
-		"id": "TASK-5207",
-		"order_details": "We need to quantify the mobile AI sensor!",
-		"from": "جدة",
-		"to": "مكة",
-		"quantity": "1",
-		"size": "طبلية",
-		"shipping_type": "cold",
-		"type_of_goods": "اجهزة كهربائية",
-		"status": "delivered",
-		"label": "feature",
-	},
-	{
 		"id": "TASK-5207",
 		"order_details": "We need to quantify the mobile AI sensor!",
 		"from": "الجبيل",
@@ -126,34 +90,30 @@ let tasks: Task[] = [
 ]
 
 
-
 export const load = async () => {
     return { tasks, form: superValidate(zod(taskSchema)) }
 };
 
 export const actions = {
 
-    update: async ({ request, url }) => {
-        const id = url.searchParams.get('id')
-
+    update: async ({ request }) => {
         const data = Object.fromEntries(await request.formData()) as Task
 
-        tasks = tasks.map(task => task.id === id ? data : task)
-
-        return {
-            tasks
-        }
+        tasks = tasks.map(task => task.id === data.id ? data : task)
     },
 
     create: async ({ request }) => {
         console.log('hello')
+
+		
+
         const data = Object.fromEntries(await request.formData()) as Task
+
+		data.status = 'new'
 
         tasks.push(data)
 
-        return {
-            tasks
-        }
+		console.log(tasks)
     },
 
     delete: async ({ url }) => {
@@ -161,9 +121,5 @@ export const actions = {
         const id = url.searchParams.get('id')
 
         tasks = tasks.filter(task => task.id !== id)
-
-        return {
-            tasks
-        }
     }
 };

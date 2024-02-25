@@ -18,27 +18,27 @@ export const labels = [
 
 export const statuses = [
 	{
-		label: m.newT(),
+		label: m.m_new(),
 		value: "new",
 		icon: SignalZero,
 	},
 	{
-		label: m.accepted(),
+		label: m.m_accepted(),
 		value: "accepted",
 		icon: SignalLow,
 	},
 	{
-		label: m.in_progress(),
-		value: "in progress",
+		label: m.m_in_progress(),
+		value: "in_progress",
 		icon: SignalMedium,
 	},
 	{
-		label: m.delivered(),
+		label: m.m_delivered(),
 		value: "delivered",
 		icon: SignalHigh,
 	},
 	{
-		label: m.cancelled(),
+		label: m.m_cancelled(),
 		value: "cancelled",
 		icon: X,
 	},

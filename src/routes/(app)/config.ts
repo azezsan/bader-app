@@ -32,7 +32,7 @@ export const primaryRoutes: Route[] = [
 export const secondaryRoutes: Route[] = [
 	{
 		title: m.logout(),
-		label: "972",
+		label: "",
 		icon: Icons.logout,
 		variant: "ghost",
 		href: "/",

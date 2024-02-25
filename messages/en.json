@@ -7,9 +7,9 @@
     "logout": "Logout",
     "orders": "Orders",
     "Inbox": "Inbox",
-    "priority": "Priority",
+    "shipping_type": "Transport type",
     "status": "Status",
-    "title": "Title",
+    "order_details": "Order details",
     "order": "Order",
     "view": "View",
     "edit": "Edit",
@@ -23,5 +23,15 @@
     "toggle_columns": "Toggle columns",
     "frozen": "Frozen",
     "cold": "Cold",
-    "dry": "Dry"
+    "dry": "Dry",
+    "m_new": "new",
+    "m_accepted": "acceptable",
+    "m_in_progress": "Under delivery",
+    "m_delivered": "Delivered",
+    "m_cancelled": "canceled",
+    "from": "from",
+    "to": "to",
+    "size": "size",
+    "quantity": "amount",
+    "type_of_goods": "Type of goods"
 }
