@@ -37,7 +37,7 @@
 			</Button>
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content class="w-[160px]" align="end">
-			<Dialog.Trigger>
+			<Dialog.Trigger class="w-full text-left">
 				<DropdownMenu.Item>{m.edit()}</DropdownMenu.Item>
 			</Dialog.Trigger>
 			<DropdownMenu.Item>Make a copy</DropdownMenu.Item>
@@ -89,10 +89,10 @@
 		</Dialog.Header>
 		<form method="POST" action="?/update&id={row.id}">
 			<input type="hidden" name="id" value={row.id} />
-			<Form.Field {form} name="title">
+			<Form.Field {form} name="order_details">
 				<Form.Control let:attrs>
 					<Form.Label>title</Form.Label>
-					<Input {...attrs} bind:value={$formData.title} />
+					<Input {...attrs} bind:value={$formData.order_details} />
 				</Form.Control>
 				<Form.Description />
 				<Form.FieldErrors />
@@ -105,10 +105,10 @@
 				<Form.Description />
 				<Form.FieldErrors />
 			</Form.Field>
-			<Form.Field {form} name="priority">
+			<Form.Field {form} name="shipping_type">
 				<Form.Control let:attrs>
-					<Form.Label>priority</Form.Label>
-					<Input {...attrs} bind:value={$formData.priority} />
+					<Form.Label>shipping type</Form.Label>
+					<Input {...attrs} bind:value={$formData.shipping_type} />
 				</Form.Control>
 				<Form.Description />
 				<Form.FieldErrors />

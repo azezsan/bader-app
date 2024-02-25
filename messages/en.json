@@ -20,5 +20,8 @@
     "page": "Page",
     "of": "of",
     "filter_orders": "Filter orders",
-    "toggle_columns": "Toggle columns"
+    "toggle_columns": "Toggle columns",
+    "frozen": "Frozen",
+    "cold": "Cold",
+    "dry": "Dry"
 }

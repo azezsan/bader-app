@@ -40,10 +40,10 @@
 				<Form.Description />
 				<Form.FieldErrors />
 			</Form.Field>
-			<Form.Field {form} name="title">
+			<Form.Field {form} name="order_details">
 				<Form.Control let:attrs>
 					<Form.Label>title</Form.Label>
-					<Input {...attrs} bind:value={$formData.title} disabled={disableInput} />
+					<Input {...attrs} bind:value={$formData.order_details} disabled={disableInput} />
 				</Form.Control>
 				<Form.Description />
 				<Form.FieldErrors />
@@ -56,10 +56,10 @@
 				<Form.Description />
 				<Form.FieldErrors />
 			</Form.Field>
-			<Form.Field {form} name="priority">
+			<Form.Field {form} name="shipping_type">
 				<Form.Control let:attrs>
 					<Form.Label>priority</Form.Label>
-					<Input {...attrs} bind:value={$formData.priority} disabled={disableInput} />
+					<Input {...attrs} bind:value={$formData.shipping_type} disabled={disableInput} />
 				</Form.Control>
 				<Form.Description />
 				<Form.FieldErrors />

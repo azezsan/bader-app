@@ -1,11 +1,5 @@
-import ArrowDown from "svelte-radix/ArrowDown.svelte";
-import ArrowRight from "svelte-radix/ArrowRight.svelte";
-import ArrowUp from "svelte-radix/ArrowUp.svelte";
-import CheckCircled from "svelte-radix/CheckCircled.svelte";
-import Circle from "svelte-radix/Circle.svelte";
-import CrossCircled from "svelte-radix/CrossCircled.svelte";
-import QuestionMarkCircled from "svelte-radix/QuestionMarkCircled.svelte";
-import Stopwatch from "svelte-radix/Stopwatch.svelte";
+import { Snowflake, SunSnow, Sun, SignalZero, SignalLow, SignalMedium, SignalHigh, X } from "lucide-svelte";
+import * as m from '$paraglide/messages';
 
 export const labels = [
 	{
@@ -24,46 +18,46 @@ export const labels = [
 
 export const statuses = [
 	{
-		value: "backlog",
-		label: "Backlog",
-		icon: QuestionMarkCircled,
+		label: m.newT(),
+		value: "new",
+		icon: SignalZero,
 	},
 	{
-		value: "todo",
-		label: "Todo",
-		icon: Circle,
+		label: m.accepted(),
+		value: "accepted",
+		icon: SignalLow,
 	},
 	{
+		label: m.in_progress(),
 		value: "in progress",
-		label: "In Progress",
-		icon: Stopwatch,
+		icon: SignalMedium,
 	},
 	{
-		value: "done",
-		label: "Done",
-		icon: CheckCircled,
+		label: m.delivered(),
+		value: "delivered",
+		icon: SignalHigh,
 	},
 	{
-		value: "canceled",
-		label: "Canceled",
-		icon: CrossCircled,
+		label: m.cancelled(),
+		value: "cancelled",
+		icon: X,
 	},
 ];
 
-export const priorities = [
+export const shipping_types = [
 	{
-		label: "Low",
-		value: "low",
-		icon: ArrowDown,
+		label: m.frozen(),
+		value: "frozen",
+		icon: Snowflake,
 	},
 	{
-		label: "Medium",
-		value: "medium",
-		icon: ArrowRight,
+		label: m.cold(),
+		value: "cold",
+		icon: SunSnow,
 	},
 	{
-		label: "High",
-		value: "high",
-		icon: ArrowUp,
+		label: m.dry(),
+		value: "dry",
+		icon: Sun,
 	},
 ];

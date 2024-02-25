@@ -80,9 +80,9 @@
 			}
 		}),
 		table.column({
-			accessor: 'title',
-			id: 'title',
-			header: m.title(),
+			accessor: 'order_details',
+			id: 'order_details',
+			header: m.order_details(),
 			cell: ({ value, row }) => {
 				if (row.isData()) {
 					return createRender(DataTableTitleCell, {
@@ -91,7 +91,42 @@
 					});
 				}
 				return value;
+			},
+			plugins: {
+				sort: {
+					disable: true
+				}
 			}
+		}),
+		table.column({
+			accessor: 'type_of_goods',
+			id: 'type_of_goods',
+			header: m.type_of_goods(),
+			plugins: {
+				sort: {
+					disable: true
+				}
+			}
+		}),
+		table.column({
+			accessor: 'from',
+			id: 'from',
+			header: m.from()
+		}),
+		table.column({
+			accessor: 'to',
+			id: 'to',
+			header: m.to()
+		}),
+		table.column({
+			accessor: 'size',
+			id: 'size',
+			header: m.size()
+		}),
+		table.column({
+			accessor: 'quantity',
+			id: 'quantity',
+			header: m.quantity()
 		}),
 		table.column({
 			accessor: 'status',
@@ -119,9 +154,9 @@
 			}
 		}),
 		table.column({
-			accessor: 'priority',
-			id: 'priority',
-			header: m.priority(),
+			accessor: 'shipping_type',
+			id: 'shipping_type',
+			header: m.shipping_type(),
 			cell: ({ value }) => {
 				return createRender(DataTablePriorityCell, {
 					value

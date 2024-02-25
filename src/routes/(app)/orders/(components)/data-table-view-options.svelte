@@ -18,7 +18,7 @@
 		.filter(([, hide]) => !hide)
 		.map(([id]) => id);
 
-	const hidableCols = ['title', 'status', 'priority'];
+	const hidableCols = ['order_details', 'status', 'shipping_type', "from", "to", "quantity", "size"];
 </script>
 
 <DropdownMenu.Root>
