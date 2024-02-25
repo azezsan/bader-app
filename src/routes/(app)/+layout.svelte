@@ -7,7 +7,6 @@
 	import AccountSwitcher from './(components)/account-switcher.svelte';
 	import { accounts } from './inbox/data';
 
-	export let defaultLayout = [265, 440, 655];
 	export let defaultCollapsed = false;
 
 	let isCollapsed = defaultCollapsed;
@@ -33,7 +32,7 @@
 	class="min-h-screen items-stretch overflow-hidden"
 >
 	<Resizable.Pane
-		defaultSize={defaultLayout[0]}
+		defaultSize={1 / 5}
 		collapsedSize={4}
 		collapsible
 		minSize={15}
@@ -50,7 +49,7 @@
 		<Nav {isCollapsed} routes={secondaryRoutes} />
 	</Resizable.Pane>
 	<Resizable.Handle withHandle />
-	<Resizable.Pane defaultSize={defaultLayout[1]}>
+	<Resizable.Pane defaultSize={4 / 5}>
 		<slot />
 	</Resizable.Pane>
 </Resizable.PaneGroup>
