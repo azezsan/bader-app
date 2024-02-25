@@ -48,7 +48,7 @@
 			{m.of()}
 			{$pageCount}
 		</div>
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-2 rtl:flex-row-reverse">
 			<Button
 				variant="outline"
 				class="hidden h-8 w-8 p-0 lg:flex"

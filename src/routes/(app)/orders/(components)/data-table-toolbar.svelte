@@ -5,7 +5,7 @@
 	import type { TableViewModel } from 'svelte-headless-table';
 	import { Button } from '$lib/components/ui/button';
 	import Cross2 from 'svelte-radix/Cross2.svelte';
-	import { statuses, priorities } from '../(data)/data';
+	import { statuses, shipping_types } from '../(data)/data';
 	import type { Writable } from 'svelte/store';
 	import { MixerHorizontal } from 'svelte-radix';
 	import { Cross, Plus } from 'lucide-svelte';
@@ -25,7 +25,7 @@
 	}: {
 		filterValues: Writable<{
 			status: string[];
-			priority: string[];
+			shipping_type: string[];
 		}>;
 	} = pluginStates.colFilter;
 
@@ -48,16 +48,16 @@
 		/>
 
 		<DataTableFacetedFilter
-			bind:filterValues={$filterValues.priority}
-			title={m.priority()}
-			options={priorities}
+			bind:filterValues={$filterValues.shipping_type}
+			title={m.shipping_type()}
+			options={shipping_types}
 		/>
 		{#if showReset}
 			<Button
 				on:click={() => {
 					$filterValue = '';
 					$filterValues.status = [];
-					$filterValues.priority = [];
+					$filterValues.shipping_type = [];
 				}}
 				variant="ghost"
 				class="h-8 px-2 lg:px-3"
